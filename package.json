@@ -1,0 +1,29 @@
+{
+  "name": "apitemplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "openapi-typescript https://dev.pad.daoland.io/api/documentation.json --output ./.temp/types.ts",
+    "test": "mocha --require ts-node/register ./test/**/*.test.ts"
+  },
+  "author": "Sergey Gordienko",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.2.3",
+    "mocha": "^8.3.2",
+    "ts-node": "^9.1.1",
+    "got": "^11.8.2",
+    "http-req-builder": "^1.2.1",
+    "@types/mocha": "*",
+    "@types/node": "^14.14.37",
+    "openapi-typescript": "^3.2.1",
+    "tough-cookie": "^4.0.0",
+    "response-openapi-validator": "^1.1.0",
+    "mocha-multi-reporters": "^1.5.1",
+    "allure-mocha": "^2.0.0-beta.9"
+  },
+  "devDependencies": {
+    "@types/tough-cookie": "^4.0.0"
+  }
+}
