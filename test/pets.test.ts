@@ -1,32 +1,48 @@
+import { strict as assert } from 'assert'
+import { definitions } from '../.temp/types';
+import { ApiClient } from '../api/client';
 
-import { strict as assert} from 'assert'
-import { CampaignController } from '../api/Controller/campaign.controller'
+describe('Pet', function () {
+    it('can be received by id', async function () {
+        const client = new ApiClient()
+        const id: string = '3'
+        const campaign = await client.pet.getById(id)
 
-describe('Pet', function(){
-    it('', async function () {
-        const id = 1
-        const campaignController = new CampaignController
-        const campaign = await campaignController.getById(1)
-
-        console.log(campaign.result.id)
-        
-
-        //const campaigns = JSON.parse(response.body)
-       
-        //console.log(campaigns.length)
-        //assert(campaigns.length > 0, 'More than 0')
-        //assert(body.every(campaign => body.tags.some(tag => tag.name == 'bsc')))
+        assert(id === campaign.result.id, `Expected returned pet id to be ${id}`)
     })
 
-    /*it('', async function () {
-        const campaignController = new CampaignController
-        const campaigns = await campaignController.findByStatus('bsc')
+    // it('can be added by admin', async function () {
+    //     const adminClient = await ApiClient.loginAs(
+    //         { username: 'admin', password: 'admin' }
+    //     )
 
-        console.log(campaigns.every(campaign => campaign.tags))
-        //const campaigns = JSON.parse(response.body)
-       
-        //console.log(campaigns.length)
-        //assert(campaigns.length > 0, 'More than 0')
-        //assert(body.every(campaign => body.tags.some(tag => tag.name == 'bsc')))
-    })*/
+    //     const petToCreate: Omit<definitions['Pet'], 'id'> = {
+    //         category: {
+    //             id: 0,
+    //             name: 'catName1'
+    //         },
+    //         name: "Cat",
+    //         photoUrls: [
+    //             'http://test.com'
+    //         ],
+    //         tags: [
+    //             {
+    //                 id: 0,
+    //                 name: 'tag1'
+    //             }
+    //         ],
+    //         status: 'available'
+    //     }
+
+    //     const addedPet = await adminClient.pet.addNew(petToCreate)
+
+    //     assert.deepEqual(
+    //         addedPet,
+    //         {
+    //             ...petToCreate,
+    //             id: addedPet.id
+    //         },
+    //         `Expected created pet to match data used upon creation`
+    //     )
+    // })
 })
