@@ -1,15 +1,15 @@
 import { CookieJar } from 'tough-cookie'
 import { CONFIG } from '../config/npmConfig';
-import { PetController } from "./Controller/campaign.controller";
+import { CampaignController } from "./Controller/campaign.controller";
 import { UserController } from "./Controller/user.controller";
 
 export class ApiClient {
-    public readonly pet: PetController
+    public readonly campaign: CampaignController
     public readonly user: UserController
 
     constructor(params?: { token?: string, prefixUrl?: string, cookies?: CookieJar }) {
         const defaultParams = {
-            prefixUrl: CONFIG.get('petstore_url'),
+            prefixUrl: CONFIG.get('ido_url'),
             cookies: new CookieJar(),
             token: undefined
         }
@@ -19,7 +19,7 @@ export class ApiClient {
             ...params
         }
 
-        this.pet = new PetController(mergedParams)
+        this.campaign = new CampaignController(mergedParams)
         this.user = new UserController(mergedParams)
     }
 

@@ -3,12 +3,21 @@ import { definitions } from '../.temp/types';
 import { ApiClient } from '../api/client';
 
 describe('Pet', function () {
-    it('can be received by id', async function () {
+    /*it('can be received by id', async function () {
         const client = new ApiClient()
-        const id: string = '3'
-        const campaign = await client.pet.getById(id)
-
+        const id = '3'
+        const campaign = await client.campaign.getById(id)
+        
         assert(id === campaign.result.id, `Expected returned pet id to be ${id}`)
+    })*/
+
+    it('leaderboard by id', async function () {
+        const client = new ApiClient()
+        const id = 21
+        const users = await client.campaign.getLeaderboardById(id)
+        
+        //assert(users.length > 0)
+        //assert(users.(user => user))
     })
 
     // it('can be added by admin', async function () {

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pretest": "openapi-typescript https://dev.pad.daoland.io/api/documentation.json --output ./.temp/types.ts",
+    
     "test": "mocha --require ts-node/register ./test/**/*.test.ts"
   },
   "author": "Sergey Gordienko",

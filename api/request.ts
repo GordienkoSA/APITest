@@ -4,7 +4,7 @@ import { CONFIG } from '../config/npmConfig'
 import { allure } from 'allure-mocha/dist/MochaAllureReporter'
 
 const responseValidator = new ResponseValidator({
-    openApiSpecPath: CONFIG.get('petstore_swagger_url'),
+    openApiSpecPath: CONFIG.get('ido_swagger_url'),
     apiPathPrefix: '/api',
     ajvOptions: {
         allErrors: true,
@@ -21,7 +21,7 @@ const responseValidator = new ResponseValidator({
 export class JsonRequestWithValidation extends JsonRequest {
     constructor() {
         super()
-        this.options = {
+        /*this.options = {
             ...this.options,
             hooks: {
                 afterResponse: [
@@ -52,7 +52,7 @@ export class JsonRequestWithValidation extends JsonRequest {
                     }
                 ]
             }
-        }
+        }*/
     }
 
     async send<T = any>() {
